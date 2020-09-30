@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="style.css">
@@ -19,11 +20,11 @@
         <div class="rightleft"></div>
         <label class="close cls_label">close</label>
       </div>
-      <div class="button" onclick="openTool(this, 'first_tool')">
+      <div class="button" onclick="openTool(this, 'first_tool')" id="default_active">
         <div class="btn_glow"></div>
         <div class="btn_body">File rename</div>
       </div>
-      <div class="button" onclick="openTool(this, 'second_tool')" id="default_active">
+      <div class="button" onclick="openTool(this, 'second_tool')">
         <div class="btn_glow"></div>
         <div class="btn_body">Button state fix</div>
       </div>
@@ -33,24 +34,47 @@
         <input type="input" class="form__field" placeholder=" " name="name" autocomplete="off" id='name' required />
         <label for="name" class="form__label">Path</label>
       </div>
-      <div class="interactive form__group" style="width: 30%;">
+      <div class="interactive form__group" style="width: 30%;margin-top:10px;">
         <input type="input" class="form__field" placeholder=" " name="name3" autocomplete="off" id='name3' required />
         <label for="name3" class="form__label">Name</label>
       </div>
       <button class="interactive btn-hover color-8">Apply</button>
     </div>
     <div class="tool_container second_tool">
-      <div class="interactive form__group" style="width: 30%;">
-        <input type="input" class="form__field" placeholder=" " name="name2" autocomplete="off" id='name2' required />
-        <label for="name2" class="form__label">Name</label>
+      <div class="interactive form__group">
+        <input type="input" class="form__field" placeholder=" " name="name" autocomplete="off" id='name' required />
+        <label for="name" class="form__label">Path</label>
       </div>
-      <span class="sign_word">hovered</span>
-      <div class='interactive toggle' id='switch'>
+      <button class="interactive btn-hover color-8">Apply</button>
+
+      <span class="sign_word" id='regular'>regular</span>
+      <div class='interactive toggle' id='regular'>
         <div class='toggle-text-off'>OFF</div>
         <div class='glow-comp'></div>
         <div class='toggle-button'></div>
         <div class='toggle-text-on'>ON</div>
-    </div>
+      </div>
+      <span class="sign_word" id='hovered'>hovered</span>
+      <div class='interactive toggle' id='hovered'>
+        <div class='toggle-text-off'>OFF</div>
+        <div class='glow-comp'></div>
+        <div class='toggle-button'></div>
+        <div class='toggle-text-on'>ON</div>
+      </div>
+      <span class="sign_word" id='pressed'>pressed</span>
+      <div class='interactive toggle' id='pressed'>
+        <div class='toggle-text-off'>OFF</div>
+        <div class='glow-comp'></div>
+        <div class='toggle-button'></div>
+        <div class='toggle-text-on'>ON</div>
+      </div>
+      <span class="sign_word" id='disabled'>disabled</span>
+      <div class='interactive toggle' id='disabled'>
+        <div class='toggle-text-off'>OFF</div>
+        <div class='glow-comp'></div>
+        <div class='toggle-button'></div>
+        <div class='toggle-text-on'>ON</div>
+      </div>
     </div>
   </div>
   <script type="text/javascript" src="client.js"></script>

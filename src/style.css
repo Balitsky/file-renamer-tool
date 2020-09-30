@@ -272,7 +272,7 @@
     position: relative;
     padding: 15px 0 0;
     left: 20px;
-    margin-top: 10px;
+    margin-top: 3px;
     width: 92%;
   }
 
@@ -468,13 +468,13 @@
 }
 .sign_word {
   position: absolute;
-  font-size: 2rem;
-  bottom: 28%;
-  left: 22%;
+  font-size: 1.4rem;
+  margin-left: 57px;
   color: #828282;
   line-height: 1;
   text-decoration: none;
   user-select: none;
+  font-family: "Vibur", cursive;
 }
 .active12 {
   color: #c6e2ff;
@@ -487,11 +487,21 @@
  */
 
 
-#switch{
-  top: 50%;
-  left: 5%;
-  width: 75px;
-  height: 40px;
+#regular{
+  top: 43%;
+  left: 3.5%;
+}
+#hovered{
+  top: 70%;
+  left: 3.5%;
+}
+#pressed{
+  top: 43%;
+  left: 35%;
+}
+#disabled{
+  top: 70%;
+  left: 35%;
 }
 
 .toggle{
@@ -501,6 +511,8 @@
   -webkit-transition: border-color .6s  ease-out;
   transition: border-color .6s  ease-out;
   box-sizing: border-box;
+  width: 50px;
+  height: 30px;
 }
 
 .toggle.toggle-on{
@@ -512,9 +524,9 @@
 .toggle-button{
   position: absolute;
   top: 4px;
-  width: 28px;
+  width: 19px;
   bottom: 4px;
-  right: 39px;
+  right: 25px;
   background-color: #444249;
   border-radius: 19px; 
   cursor: pointer;
@@ -524,7 +536,7 @@
 
 .toggle-on .toggle-button{
   top: 3px;
-  width: 65px;
+  width: 41px;
   bottom: 3px;
   right: 3px;
   border-radius: 23px;
@@ -537,14 +549,14 @@
 
 .toggle-text-on{
   position: absolute;
-  top: 0;
+  top: -4px;
   bottom: 0;
   left: 0;
   right: 0;
   line-height: 36px;
   text-align: center;
   font-family: 'Quicksand', sans-serif;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: normal;
   cursor: pointer;
   -webkit-user-select: none; /* Chrome/Safari */    
@@ -563,13 +575,13 @@
 
 .toggle-text-off{
   position: absolute;
-  top: 0;
+  top: -4px;
   bottom: 0;
-  right: 6px;
+  right: 2px;
   line-height: 36px;
   text-align: center;
   font-family: 'Quicksand', sans-serif;
-  font-size: 14px;
+  font-size: 11px;
   font-weight: bold;
   -webkit-user-select: none; /* Chrome/Safari */        
   -moz-user-select: none; /* Firefox */
