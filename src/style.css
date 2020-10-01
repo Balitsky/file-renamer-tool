@@ -476,15 +476,10 @@
   user-select: none;
   font-family: "Vibur", cursive;
 }
-.active12 {
+.active_glow {
   color: #c6e2ff;
   animation: neon .08s ease-in-out infinite alternate;
   }
-/* .sign_word:focus, .sign_word:hover {
-  color: #c6e2ff;
-  animation: neon .08s ease-in-out infinite alternate;
-}
- */
 
 
 #regular{
