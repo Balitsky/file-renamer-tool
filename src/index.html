@@ -4,15 +4,13 @@
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="style.css">
-  <script type="text/javascript" src="../node_modules/jquery/dist/jquery.min.js"></script>
-  <title></title>
 </head>
 
 <body>
   <div class="gr">
     <iframe src="background/firefly.html" class="fire_back" scrolling="no"></iframe>
     <div class="popup success"></div>
-    <!-- <div class="popup error"></div> -->
+    <div class="popup error"></div>
 
     <div class="bar">
       <div class="close-container" , id="close-btn">
@@ -31,21 +29,21 @@
     </div>
     <div class="tool_container first_tool">
       <div class="interactive form__group">
-        <input type="input" class="form__field" placeholder=" " name="name" autocomplete="off" id='name' required />
-        <label for="name" class="form__label">Path</label>
+        <input type="input" class="form__field" placeholder=" " name="path" autocomplete="off" id='path' required />
+        <label for="path" class="form__label">Path</label>
       </div>
       <div class="interactive form__group" style="width: 30%;margin-top:10px;">
-        <input type="input" class="form__field" placeholder=" " name="name3" autocomplete="off" id='name3' required />
-        <label for="name3" class="form__label">Name</label>
+        <input type="input" class="form__field" placeholder=" " name="name" autocomplete="off" id='name' required />
+        <label for="name" class="form__label">Name</label>
       </div>
-      <button class="interactive btn-hover color-8">Apply</button>
+      <button class="interactive btn-hover color-8" onclick="doFileRename()">Apply</button>
     </div>
     <div class="tool_container second_tool">
       <div class="interactive form__group">
-        <input type="input" class="form__field" placeholder=" " name="name" autocomplete="off" id='name' required />
-        <label for="name" class="form__label">Path</label>
+        <input type="input" class="form__field" placeholder=" " name="path" autocomplete="off" id='path' required />
+        <label for="path" class="form__label">Path</label>
       </div>
-      <button class="interactive btn-hover color-8">Apply</button>
+      <button class="interactive btn-hover color-8" onclick="doButtonFix()">Apply</button>
 
       <span class="sign_word" id='regular'>regular</span>
       <div class='interactive toggle' id='regular'>

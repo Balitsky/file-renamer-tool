@@ -1,3 +1,8 @@
+import { PythonShell } from "python-shell";
+import $ from "jquery";
+// const { PythonShell } = require('python-shell')
+
+
 const TOOLS = $('.tool_container');
 
 class ToggleElement {
@@ -17,13 +22,13 @@ const toggleMap = new Map();
 function reliseStates(map) {
   var index = 1;
   map.forEach(function (value) {
-    if(value.active){
+    if (value.active) {
       value.toggleNumberText.text('0' + index++)
     }
   });
 }
 
-function addClickHandler(toggle){
+function addClickHandler(toggle) {
   toggle.toggleButton.on('click', function (e) {
     $(this).toggleClass('toggle-on');
     $('.sign_word#' + toggle.stateName).toggleClass('active_glow');
@@ -55,12 +60,6 @@ function init() {
   })
 }
 
-function applyStyle(element, theme) {
-  if (element) {
-    element.setAttribute('id', theme);
-  }
-}
-
 function openTool(button, currentTool) {
   $('#disable_button').removeAttr('id');
   $(button).attr('id', 'disable_button');
@@ -76,12 +75,55 @@ function openTool(button, currentTool) {
   })
 }
 
+function doFileRename() {
+  var path = $('.first_tool #path')
+  var name = $('.first_tool #name')
 
-/* $('.toggle#hovered').on('click', function (e) {
-  $('#hovered').toggleClass('active12');
-  var tog = new ToggleElement('hovered')
-  tog.toggleNumberText.text('23')
-  $('.toggle#regular .toggle-text-on').text('12')
-}); */
+  if (path.val() && name.val()) {
+    PythonShell.run(__dirname + '/scripts/fileRename.py', {
+      args: [JSON.stringify({
+        "path": path.val(),
+        "name": name.val()
+      })]
+    }, function (err, output) {
+      if (err) {
+        $('.error').animate({ opacity: 1 }, 'fast').animate({ opacity: 0 }, 'fast')
+        throw err;
+      } else {
+        $('.success').animate({ opacity: 1 }, 'fast').animate({ opacity: 0 }, 'fast')
+        name.val('')
+      }
+    });
+  } else {
+    $('.error').animate({ opacity: 1 }, 'fast').animate({ opacity: 0 }, 'fast')
+  }
+}
+
+function doButtonFix(){
+  var path = $('.second_tool #path')
+
+  if (path.val()) {
+    var states = {};
+    toggleMap.forEach(function(value, key){
+      states[key] = value.active
+    })
+    PythonShell.run(__dirname + '/scripts/buttonFix.py', {
+      args: [JSON.stringify({
+        "path": path.val(),
+        "states": states
+      })]
+    }, function (err, output) {
+      if (err) {
+        $('.error').animate({ opacity: 1 }, 'fast').animate({ opacity: 0 }, 'fast')
+        throw err;
+      } else {
+        $('.success').animate({ opacity: 1 }, 'fast').animate({ opacity: 0 }, 'fast')
+        path.val('')
+      }
+    });
+  } else {
+    $('.error').animate({ opacity: 1 }, 'fast').animate({ opacity: 0 }, 'fast')
+  }
+}
 
 init();

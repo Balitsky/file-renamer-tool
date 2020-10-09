@@ -12,22 +12,26 @@ let mainWindow;
 const createWindow = () => {
   // Create the browser window.
   mainWindow = new BrowserWindow({
-	width: 515,
-  height: 220, 
-  // width: 600,
-  // height: 300,
-	transparent: true, 
-	resizable: false,
-  fullscreen: false,
-  webviewTag: true,
-	frame: false
+    width: 515,
+    height: 220,
+    // width: 600,
+    // height: 300,
+    transparent: true,
+    resizable: false,
+    fullscreen: false,
+    fullscreenable: false,
+    webviewTag: true,
+    frame: false,
+    webPreferences: {
+      nodeIntegration: true
+    }
   });
 
   // and load the index.html of the app.
   mainWindow.loadURL(`file://${__dirname}/index.html`);
 
   // Open the DevTools.
-  // mainWindow.webContents.openDevTools();
+  mainWindow.webContents.openDevTools();
 
   // Emitted when the window is closed.
   mainWindow.on('closed', () => {

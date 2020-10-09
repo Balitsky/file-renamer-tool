@@ -61,6 +61,7 @@
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-jsx-a11y": "^5.1.1",
     "eslint-plugin-react": "^7.20.6",
-    "jquery": "3.5.1"
+    "jquery": "3.5.1",
+    "python-shell": "2.0.2"
   }
 }
