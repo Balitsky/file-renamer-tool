@@ -37,9 +37,14 @@ function addClickHandler(toggle) {
   });
 }
 
-function init() {
+function extractTool(button){
   var toolNameRegex = new RegExp("([a-zA-Z_]+)(?=['])");
-  var defTool = toolNameRegex.exec($('#default_active').attr('onClick')).pop()
+  var tool = toolNameRegex.exec(button.attr('onClick')).pop()
+  return tool;
+}
+
+function init() {
+  var defTool = extractTool($('#default_active'));
   $('#default_active').attr('id', 'disable_button');
   TOOLS.each(function (index, tool) {
     $(tool).fadeOut(0);
@@ -58,6 +63,12 @@ function init() {
   toggleMap.forEach(function (value) {
     value.toggleButton.trigger('click');
   })
+
+  $(document).on('keypress',function(e) {
+    if(e.which == 13) {
+      $('.' + extractTool($('#disable_button')) + " #apply").trigger('click');
+    }
+});
 }
 
 function openTool(button, currentTool) {
