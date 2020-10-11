@@ -92,6 +92,7 @@ function doFileRename() {
 
   if (path.val() && name.val()) {
     PythonShell.run(__dirname + '/scripts/fileRename.py', {
+      pythonPath: __dirname + "/scripts/env/python-embed/python",
       args: [JSON.stringify({
         "path": path.val(),
         "name": name.val()
@@ -119,6 +120,7 @@ function doButtonFix(){
       states[key] = value.active
     })
     PythonShell.run(__dirname + '/scripts/buttonFix.py', {
+      pythonPath: __dirname + "/scripts/env/python-embed/python",
       args: [JSON.stringify({
         "path": path.val(),
         "states": states
