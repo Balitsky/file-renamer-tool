@@ -195,9 +195,7 @@
   }
 
   .error {
-    /* background-color: #ff0b0b; */
-    background-color: #5762ff;
-    /* background-color: #6d1eff; */
+    background-color: #ff0b0b;
   }
 
   .close-container {
