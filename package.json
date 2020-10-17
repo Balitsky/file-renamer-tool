@@ -1,7 +1,8 @@
 {
   "name": "file-renamer-tool",
   "productName": "file-renamer-tool",
-  "version": "1.0.0",
+  "repository": "https://github.com/Balitsky/file-renamer-tool",
+  "version": "3.0.2",
   "description": "Helper for file renaming",
   "main": "src/index.js",
   "scripts": {
@@ -32,23 +33,28 @@
         "packageManager": "npm"
       },
       "electronWinstallerConfig": {
-        "name": "simple_desktop_app_electronjs"
+        "name": "file-renamer-tool",
+        "loadingGif": "assets/loading.gif",
+        "setupIcon": "assets/setup.ico"
       },
       "electronInstallerDebian": {},
       "electronInstallerRedhat": {},
       "github_repository": {
-        "owner": "",
-        "name": ""
+        "owner": "Balitsky",
+        "name": "file-renamer-tool",
+        "draft": false,
+        "prerelease": false
       },
       "windowsStoreConfig": {
         "packageName": "",
-        "name": "simpledesktopappelectronjs"
+        "name": "file-renamer-tool"
       }
     }
   },
   "dependencies": {
     "electron-compile": "^6.4.4",
     "electron-squirrel-startup": "^1.0.0",
+    "update-electron-app": "1.5.0",
     "jquery": "3.5.1",
     "python-shell": "2.0.2"
   },
