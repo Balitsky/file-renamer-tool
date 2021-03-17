@@ -18,13 +18,20 @@
         <div class="rightleft"></div>
         <label class="close cls_label">close</label>
       </div>
-      <div class="button" onclick="openTool(this, 'first_tool')" id="default_active">
+      <div class="button" onclick="openTool(this, 'first_tool', {width: 500, height: 200})" id="default_active">
         <div class="btn_glow"></div>
-        <div class="btn_body">File rename</div>
+        <div class="btn_body">
+          <div>File rename</div>
+          <div style="color: dimgrey;">deprecated</div>
+        </div>
       </div>
-      <div class="button" onclick="openTool(this, 'second_tool')">
+      <div class="button" onclick="openTool(this, 'second_tool', {width: 500, height: 200})">
         <div class="btn_glow"></div>
         <div class="btn_body">Button state fix</div>
+      </div>
+      <div class="button" onclick="openTool(this, 'third_tool', {width: 1000, height: 600})">
+        <div class="btn_glow"></div>
+        <div class="btn_body">Localization checker</div>
       </div>
     </div>
     <div class="tool_container first_tool">
@@ -74,8 +81,73 @@
         <div class='toggle-text-on'>04</div>
       </div>
     </div>
+    <div class="tool_container third_tool">
+      <div class="interactive form__group">
+        <input type="input" class="form__field" placeholder=" " name="path" autocomplete="off" id='path' required />
+        <label for="path" class="form__label">Path</label>
+      </div>
+      <div class="table_tool">
+        <div class="tbl-header">
+          <table cellpadding="0" cellspacing="0" border="0">
+            <colgroup>
+              <col style="width:60%">
+              <col style="width:20%">
+              <col style="width:20%">
+            </colgroup>
+            <thead>
+              <tr>
+                <th>Image path</th>
+                <th>Dimensions</th>
+                <th>Patern name</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+        <div class="tbl-content">
+          <table cellpadding="0" cellspacing="0" border="0">
+            <colgroup>
+              <col style="width:60%">
+              <col style="width:20%">
+              <col style="width:20%">
+            </colgroup> 
+            <tbody id="table_body">
+              <tr>
+                <td>C:\repositories\git.bitbucket\geco-even-the-score\build\glu</td>
+                <td>1024x1024</td>
+                <td>valid</td>
+              </tr>
+              <tr>
+                <td>C:\repositories\git.bitbucket\geco-even-the-score\build\glu</td>
+                <td>1024x1024</td>
+                <td>valid</td>
+              </tr>
+              <tr>
+                <td>C:\repositories\git.bitbucket\geco-even-the-score\build\glu</td>
+                <td>1024x1024</td>
+                <td>valid</td>
+              </tr>
+              <tr>
+                <td>C:\repositories\git.bitbucket\geco-even-the-score\build\glu</td>
+                <td>1024x1024</td>
+                <td>valid</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="interactive form__group" style="width: 30%;margin-top:10px;">
+        <input type="input" class="form__field" placeholder=" " name="name" autocomplete="off" id='name' required />
+        <label for="name" class="form__label">Kek</label>
+      </div>
+      <button id="apply" class="interactive btn-hover color-8" onclick="test()">Check</button>
+    </div>
   </div>
   <script type="text/javascript" src="client.js"></script>
 </body>
-
+<script>
+  /* $(window).on("load resize ", function() {
+  var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width() - 15;
+  $('.tbl-header').css({'padding-right':scrollWidth});
+}).resize(); */
+</script>
 </html>

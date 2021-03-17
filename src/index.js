@@ -1,4 +1,4 @@
-import { app, BrowserWindow } from 'electron';
+import { app, BrowserWindow, ipcMain } from 'electron';
 
 // update app from github release
 require('update-electron-app')()
@@ -12,17 +12,22 @@ if (require('electron-squirrel-startup')) { // eslint-disable-line global-requir
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
 
+ipcMain.on('resize-window', (e, params) => {
+  mainWindow.setMinimumSize(params.width, params.height)
+  mainWindow.setSize(params.width, params.height, false);
+  e.returnValue = true;
+})
+
 const createWindow = () => {
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    width: 515,
-    height: 220,
-    // width: 600,
-    // height: 300,
+    width: 500,
+    height: 200,
     transparent: true,
     resizable: false,
     fullscreen: false,
     fullscreenable: false,
+    maximizable : false,
     webviewTag: true,
     frame: false,
     webPreferences: {

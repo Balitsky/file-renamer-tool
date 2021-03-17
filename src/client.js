@@ -71,7 +71,9 @@ function init() {
 });
 }
 
-function openTool(button, currentTool) {
+function openTool(button, currentTool, windowSize) {
+  resizeMainWindow(windowSize)
+
   $('#disable_button').removeAttr('id');
   $(button).attr('id', 'disable_button');
 
@@ -84,6 +86,50 @@ function openTool(button, currentTool) {
       tool.fadeOut();
     }
   })
+}
+
+import {ipcRenderer} from "electron";
+
+function resizeMainWindow(size, callback = function(){}){
+  console.log('LOOOOG')
+  ipcRenderer.sendSync('resize-window', {
+    width: $(document).width() > size.width ? $(document).width() : size.width,
+    height: $(document).height() > size.height ? $(document).height() : size.height,
+  })
+  $('.gr').stop().animate(size, 500, function(){
+    ipcRenderer.sendSync('resize-window', size)
+    callback()
+  })
+}
+
+function TableElement(){
+  this.local = {
+    var1: undefined,
+    var2: undefined,
+    var3: undefined
+  }
+
+  this.create = function(){
+    return "<tr><td>" 
+    + this.local.var1 + "</td><td>" 
+    + this.local.var2 + "</td><td>" 
+    + this.local.var3 + "</td></tr>"
+  }
+}
+
+function test() {
+  for(var i = 0; i < 22; i++){
+    setTimeout(() => {
+      // $("#table_body tr:last").after('<tr><td style="color:#' + Math.round(Math.random()*1000000) +';">AAC' + Math.random() + '</td><td style="color:#' + Math.round(Math.random()*1000000) +';">AUSTRALIAN COMPANY </td></tr>');
+      var elem = new TableElement()
+      elem.local.var1 = "C:\\repositories\\git.bitbucket\\geco-even-the-score\\build\\glu\\" + Math.random()*1000000;
+      elem.local.var2 = "1024x1024"
+      elem.local.var3 = Math.random()*10 > 5 ? "valid" : "not valid";
+      $("#table_body tr:last").after(elem.create())
+      var scrollBottom = Math.max($('#table_body').height(), 0);
+      $('.tbl-content').scrollTop(scrollBottom);
+    }, i*200)
+  }
 }
 
 function doFileRename() {
