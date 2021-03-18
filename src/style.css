@@ -651,7 +651,6 @@ th{
   color: #fff;
   text-transform: uppercase;
   user-select: none;
-  cursor: pointer;
 }
 td{
   padding: 15px;
@@ -668,6 +667,26 @@ tr th:nth-child(3),
 tr td:nth-child(2),
 tr td:nth-child(3) {
   text-align: center;
+}
+
+.sortStyle { cursor: pointer; }
+
+.ascStyle {
+  background-image: url(img/asc.gif);
+  background-repeat: no-repeat;
+  background-position: center right;
+}
+
+.descStyle {
+  background-image: url(img/desc.gif);
+  background-repeat: no-repeat;
+  background-position: center right;
+}
+
+.unsortStyle {
+  background-image: url(img/bg.gif);
+  background-repeat: no-repeat;
+  background-position: center right;
 }
 
 ::-webkit-scrollbar {
