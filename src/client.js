@@ -120,7 +120,6 @@ function TableElement(){
 function test() {
   for(var i = 0; i < 22; i++){
     setTimeout(() => {
-      // $("#table_body tr:last").after('<tr><td style="color:#' + Math.round(Math.random()*1000000) +';">AAC' + Math.random() + '</td><td style="color:#' + Math.round(Math.random()*1000000) +';">AUSTRALIAN COMPANY </td></tr>');
       var elem = new TableElement()
       elem.local.var1 = "C:\\repositories\\git.bitbucket\\geco-even-the-score\\build\\glu\\" + Math.random()*1000000;
       elem.local.var2 = "1024x1024"
@@ -186,3 +185,4 @@ function doButtonFix(){
 }
 
 init();
+$.fn.tablesort({})

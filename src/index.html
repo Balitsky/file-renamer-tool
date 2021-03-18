@@ -96,7 +96,7 @@
             </colgroup>
             <thead>
               <tr>
-                <th>Image path</th>
+                <th class="sortStyle interactive">Image path</th>
                 <th>Dimensions</th>
                 <th>Patern name</th>
               </tr>
@@ -141,13 +141,7 @@
       </div>
       <button id="apply" class="interactive btn-hover color-8" onclick="test()">Check</button>
     </div>
-  </div>
-  <script type="text/javascript" src="client.js"></script>
+    <script type="text/javascript" src="lib/jq.tablesort.js"></script>
+    <script type="text/javascript" src="client.js"></script>
 </body>
-<script>
-  /* $(window).on("load resize ", function() {
-  var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width() - 15;
-  $('.tbl-header').css({'padding-right':scrollWidth});
-}).resize(); */
-</script>
 </html>
