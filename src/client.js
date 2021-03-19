@@ -106,6 +106,7 @@ $(".dragAndDropArea")[0].addEventListener('drop', (event) => {
   event.preventDefault(); 
   event.stopPropagation(); 
   $(".table_tool").removeClass("hidden")
+  $(".third_tool #apply.btn-hover").removeClass("disabled")
   $(".dragAndDropArea").addClass("hidden")
   $(".dragAndDropArea").hide();
 

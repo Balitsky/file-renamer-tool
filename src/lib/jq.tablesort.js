@@ -92,27 +92,6 @@ import $ from "jquery";
         });
     }
 
-    /* $.fn.tablesort = function(userConfig) {
-        // Create and save table sort configuration.
-        $.extend(config, userConfig);
-
-        // Process all selected tables.
-        $.each(this, function(i, table) {
-            // Add click listener to the header.
-            $.each(getSortableTableHeaders(table), function(j, th) {
-                $(th).click(function(event) {
-                    var clickColumn = $.inArray(event.currentTarget, getTableHeaders(table));
-
-                    changeOrder(table, clickColumn);
-                });
-            });
-
-            // Initialize table sort.
-            changeOrder(table, config.defaultColumn);
-        });
-
-        return this;
-    }; */
     $.fn.tablesort = function(userConfig) {
         // Create and save table sort configuration.
         $.extend(config, userConfig);

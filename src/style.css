@@ -375,6 +375,13 @@ html, body {
     transform: scale(0.95);
   }
 
+  .btn-hover.color-8.disabled {
+    /* background-image: linear-gradient(to right, #c9dce4, #c0d8cd, #b8dac9, #9dbdad); */
+    background-image: linear-gradient(to right, #1c2529, #1b1a1a);
+    color: #494b4d;
+    pointer-events: none;
+  }
+
   .btn-hover.color-1 {
     background-image: linear-gradient(to right, #25aae1, #40e495, #30dd8a, #2bb673);
     box-shadow: 0 4px 15px 0 rgba(49, 196, 190, 0.75);
