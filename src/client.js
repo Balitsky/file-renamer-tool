@@ -107,6 +107,7 @@ $(".dragAndDropArea")[0].addEventListener('drop', (event) => {
   event.stopPropagation(); 
   $(".table_tool").removeClass("hidden")
   $(".dragAndDropArea").addClass("hidden")
+  $(".dragAndDropArea").hide();
 
   for (const f of event.dataTransfer.files) { 
       // Using the path attribute to get absolute file path 

@@ -24,10 +24,10 @@ const createWindow = () => {
     width: 500,
     height: 200,
     transparent: true,
-    // resizable: false,
-    // fullscreen: false,
-    // fullscreenable: false,
-    // maximizable : false,
+    resizable: false,
+    fullscreen: false,
+    fullscreenable: false,
+    maximizable : false,
     webviewTag: true,
     frame: false,
     webPreferences: {
@@ -39,7 +39,7 @@ const createWindow = () => {
   mainWindow.loadURL(`file://${__dirname}/index.html`);
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools();
+  // mainWindow.webContents.openDevTools();
 
   // Emitted when the window is closed.
   mainWindow.on('closed', () => {
