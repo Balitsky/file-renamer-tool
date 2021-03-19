@@ -86,7 +86,7 @@
         <input type="input" class="form__field" placeholder=" " name="path" autocomplete="off" id='path' required />
         <label for="path" class="form__label">Path</label>
       </div>
-      <div class="table_tool hidden elastic_transition interactive">
+      <div class="table_tool hidden elastic_transition">
         <div class="tbl-header">
           <table cellpadding="0" cellspacing="0" border="0">
             <colgroup>
@@ -94,17 +94,17 @@
               <col style="width:20%">
               <col style="width:20%">
             </colgroup>
-            <thead>
+            <thead class="interactive">
               <tr>
                 <th class="sortStyle">Image path</th>
-                <th>Dimensions</th>
-                <th>Patern name</th>
+                <th class="sortStyle">Dimensions</th>
+                <th class="sortStyle">Patern name</th>
               </tr>
             </thead>
           </table>
         </div>
         <div class="tbl-content">
-          <table cellpadding="0" cellspacing="0" border="0">
+          <table class="tableOverflow" cellpadding="0" cellspacing="0" border="0">
             <colgroup>
               <col style="width:60%">
               <col style="width:20%">

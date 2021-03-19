@@ -18,28 +18,57 @@ ipcMain.on('resize-window', (e, params) => {
   e.returnValue = true;
 })
 
-const createWindow = () => {
-  // Create the browser window.
-  mainWindow = new BrowserWindow({
+var windowOptions = {
+  width: 500,
+  height: 200,
+  transparent: true,
+  resizable: false,
+  fullscreen: false,
+  fullscreenable: false,
+  maximizable : false,
+  webviewTag: true,
+  frame: false,
+  webPreferences: {
+    nodeIntegration: true
+  }
+}
+
+var devOptions = {
+  transparent: false,
+  resizable: true,
+  fullscreenable: true,
+  maximizable: true
+}
+
+devOptions = undefined;
+
+if(devOptions){
+  windowOptions = {
     width: 500,
     height: 200,
-    // transparent: true,
-    // resizable: false,
-    // fullscreen: false,
-    // fullscreenable: false,
-    // maximizable : false,
+    transparent: false,
+    resizable: true,
+    fullscreenable: true,
+    maximizable: true,
     webviewTag: true,
     frame: false,
     webPreferences: {
       nodeIntegration: true
     }
-  });
+  }
+}
+
+const createWindow = () => {
+  // Create the browser window.
+  mainWindow = new BrowserWindow(windowOptions);
 
   // and load the index.html of the app.
   mainWindow.loadURL(`file://${__dirname}/index.html`);
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools();
+  if(devOptions){
+    mainWindow.webContents.openDevTools();
+  }
 
   // Emitted when the window is closed.
   mainWindow.on('closed', () => {
