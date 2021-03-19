@@ -718,11 +718,17 @@ tr td:nth-child(3) {
   position: fixed;
   top: 35%;
   color:rgb(71, 71, 71);
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: 'Courier New';
+  pointer-events: none;
 }
 
 .dragIN{
-  background-color: #4242424f;
+  background-color: #5e5e5e4f;
+  transition: all .1s ease-in;
+}
+
+.dragIN .white_text_center{
+  color:rgb(104, 103, 103);
   transition: all .1s ease-in;
 }
 
