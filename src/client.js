@@ -102,6 +102,37 @@ function resizeMainWindow(size, callback = function(){}){
   })
 }
 
+$(".dragAndDropArea")[0].addEventListener('drop', (event) => { 
+  event.preventDefault(); 
+  event.stopPropagation(); 
+  $(".table_tool").removeClass("hidden")
+  $(".dragAndDropArea").addClass("hidden")
+
+  for (const f of event.dataTransfer.files) { 
+      // Using the path attribute to get absolute file path 
+      console.log(event.dataTransfer)
+      console.log('-------')
+      console.log('File Path of dragged files: ', f.path) 
+    } 
+}); 
+
+$(".dragAndDropArea")[0].addEventListener('dragover', (e) => { 
+  e.preventDefault(); 
+  e.stopPropagation(); 
+}); 
+
+$(".dragAndDropArea")[0].addEventListener('dragenter', (event) => {
+  console.log('File is in the Drop Space'); 
+  $(".dragAndDropArea").addClass("dragIN")
+  $(".dragAndDropArea .base, .dragAndDropArea .drag_in").toggleClass("hidden")
+}); 
+
+$(".dragAndDropArea")[0].addEventListener('dragleave', (event) => { 
+  console.log('File has left the Drop Space'); 
+  $(".dragAndDropArea").removeClass("dragIN")
+  $(".dragAndDropArea .base, .dragAndDropArea .drag_in").toggleClass("hidden")
+}); 
+
 function TableElement(){
   this.local = {
     var1: undefined,

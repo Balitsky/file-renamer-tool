@@ -698,3 +698,37 @@ tr td:nth-child(3) {
 ::-webkit-scrollbar-thumb {
   -webkit-box-shadow: inset 0 0 6px rgba(109, 109, 109, 0.788); 
 }
+
+.dragAndDropArea{
+  position: absolute;
+  border-radius: 15px;
+  top: 50px;
+  margin: 15px;
+  height: 370px;
+  width: 970px;
+  background-color: #3030304f;
+  backdrop-filter: blur(6px);
+  pointer-events: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.white_text_center{
+  position: fixed;
+  top: 35%;
+  color:rgb(71, 71, 71);
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.dragIN{
+  background-color: #4242424f;
+  transition: all .1s ease-in;
+}
+
+.hidden{
+  opacity: 0;
+}
+.elastic_transition{
+  transition: all .3s ease-in;
+}
