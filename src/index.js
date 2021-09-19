@@ -40,7 +40,7 @@ var devOptions = {
   maximizable: true
 }
 
-// devOptions = undefined;
+devOptions = undefined;
 
 if(devOptions){
   windowOptions = {

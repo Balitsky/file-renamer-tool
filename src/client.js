@@ -69,6 +69,12 @@ function init() {
       $('.' + extractTool($('#disable_button')) + " #apply").trigger('click');
     }
 });
+
+var drag = require('electron-drag')
+ 
+// Pass a query selector or a dom element to the function.
+// Dragging the element will drag the whole window.
+var clear = drag('.draggable')
 }
 
 function openTool(button, currentTool, windowSize) {
@@ -102,6 +108,13 @@ function resizeMainWindow(size, callback = function(){}){
   })
 }
 
+import gm from "gm";
+gm.subClass({imageMagick: true})
+
+import fs from "fs";
+import { create } from "exif-parser";
+import {getExifDataFromImage, addExifDataToImage} from 'exif-read-write';
+
 $(".dragAndDropArea")[0].addEventListener('drop', (event) => { 
   event.preventDefault(); 
   event.stopPropagation(); 
@@ -112,9 +125,22 @@ $(".dragAndDropArea")[0].addEventListener('drop', (event) => {
 
   for (const f of event.dataTransfer.files) { 
       // Using the path attribute to get absolute file path 
-      console.log(event.dataTransfer)
       console.log('-------')
       console.log('File Path of dragged files: ', f.path) 
+      /* gm(f.path).depth(function(err, value){
+        console.log(err)
+        console.log(value)
+      }) */
+
+      var buff = fs.readFileSync(f.path)
+      /* var parser = create(buff)
+      parser.enablePointers(true)
+      parser.enableBinaryFields(true)
+      var res = parser.parse()
+      console.log("buff: ")
+      console.log(res) */
+
+      console.log(getExifDataFromImage(buff))
     } 
 }); 
 
