@@ -1,4 +1,4 @@
-import { app, BrowserWindow } from 'electron';
+import { app, BrowserWindow, ipcMain } from 'electron';
 
 // update app from github release
 require('update-electron-app')()
@@ -11,30 +11,101 @@ if (require('electron-squirrel-startup')) { // eslint-disable-line global-requir
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
+let chooseLangWindow;
 
-const createWindow = () => {
-  // Create the browser window.
-  mainWindow = new BrowserWindow({
-    width: 515,
-    height: 220,
-    // width: 600,
-    // height: 300,
+ipcMain.on('resize-window', (e, params) => {
+  mainWindow.setMinimumSize(params.width, params.height)
+  mainWindow.setSize(params.width, params.height, false);
+  e.returnValue = true;
+})
+
+ipcMain.on('apply-langs', (e, params) => {
+  mainWindow.webContents.send('apply-langs', params.langs)
+  e.returnValue = true;
+})
+
+
+ipcMain.on('chooseLang-window', (e, params) => {
+  chooseLangWindow = new BrowserWindow({
+    parent: mainWindow,
+    width: params.width,
+    height: params.height,
     transparent: true,
     resizable: false,
     fullscreen: false,
     fullscreenable: false,
+    maximizable: false,
     webviewTag: true,
     frame: false,
     webPreferences: {
       nodeIntegration: true
     }
-  });
+  })
+  var localParams = params
+  chooseLangWindow.webContents.once('dom-ready', () => {
+    chooseLangWindow.webContents.send('langs-option', localParams) 
+  })
+  chooseLangWindow.loadFile('src/chooseLangPage.html');
+  // chooseLangWindow.webContents.openDevTools();
+  
+  
+  /* setTimeout(() => {
+    chooseLangWindow.webContents.send('langs-option', langs)  
+  }, 5200) */
+  e.returnValue = true;
+})
+
+var windowOptions = {
+  width: 500,
+  height: 200,
+  transparent: true,
+  resizable: false,
+  fullscreen: false,
+  fullscreenable: false,
+  maximizable: false,
+  webviewTag: true,
+  frame: false,
+  webPreferences: {
+    nodeIntegration: true
+  }
+}
+
+var devOptions = {
+  transparent: false,
+  resizable: true,
+  fullscreenable: true,
+  maximizable: true
+}
+
+devOptions = undefined;
+
+if (devOptions) {
+  windowOptions = {
+    width: 500,
+    height: 200,
+    transparent: false,
+    resizable: true,
+    fullscreenable: true,
+    maximizable: true,
+    webviewTag: true,
+    frame: false,
+    webPreferences: {
+      nodeIntegration: true
+    }
+  }
+}
+
+const createWindow = () => {
+  // Create the browser window.
+  mainWindow = new BrowserWindow(windowOptions);
 
   // and load the index.html of the app.
   mainWindow.loadURL(`file://${__dirname}/index.html`);
 
   // Open the DevTools.
-  // mainWindow.webContents.openDevTools();
+  if (devOptions) {
+    mainWindow.webContents.openDevTools();
+  }
 
   // Emitted when the window is closed.
   mainWindow.on('closed', () => {

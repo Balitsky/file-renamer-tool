@@ -1,3 +1,10 @@
+html, body {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
 .interactive {
     -webkit-app-region: none;
     pointer-events: inherit;
@@ -13,9 +20,29 @@
     width: 500px;
     height: 200px;
     border-radius: 25px;
-    -webkit-app-region: drag;
+    /* -webkit-app-region: drag; */
     /* background-color: white; */
     animation: gradient 15s ease infinite;
+  }
+
+  .gr.chooseLang{
+    width: 175px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-app-region: drag;
+  }
+
+  .chooseLang .table_tool{
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 10%;
+    height: 400px;
+  }
+  .chooseLang .tbl-content{
+    height: 355px;
   }
 
   @keyframes gradient {
@@ -104,7 +131,6 @@
     top: 12%;
     justify-content: left;
     align-items: center;
-    z-index: 2;
     -webkit-box-pack: left;
     -webkit-box-align: center;
     -webkit-app-region: none;
@@ -154,6 +180,23 @@
     -webkit-animation: gradient 16s linear infinite;
   }
 
+  #disable_button .apply_btn .btn_body,
+  #disable_button .apply_btn .btn_glow{
+    background: linear-gradient(-45deg, #555555, #94ff3d, #3cf09c);
+  }
+  
+  .apply_btn .btn_body,
+  .apply_btn .btn_glow{
+    background: linear-gradient(-45deg, #c5ff3d, #8bff3d, #3aff33, #3cf09c);
+  }
+
+  .button.apply_btn{
+    position: absolute;
+    top: auto;
+    bottom: 5%;
+    width: 140px;
+  }
+
   .button .btn_glow {
     position: absolute;
     margin-top: 0px;
@@ -165,10 +208,12 @@
 
   .bar {
     display: grid;
-    padding-left: 4%;
-    grid-template-columns: 145px 145px;
+    padding-left: 20px;
+    grid-template-columns: 145px 145px 145px;
     position: relative;
-    height: 22%;
+    /* height: 22%; */
+    height: 44px;
+    max-height: 44px;
     width: 100%;
     background:
       linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
@@ -203,7 +248,7 @@
     margin: auto;
     width: 25px;
     height: 50px;
-    left: 465px;
+    right: 32px;
     cursor: pointer;
     -webkit-app-region: none;
   }
@@ -261,10 +306,12 @@
   }
 
   .first_tool,
-  .second_tool {
+  .second_tool,
+  .third_tool {
     position: absolute;
     width: 100%;
-    height: 78%;
+    top: 44px;
+    bottom: 0px;
     font-family: 'Poppins', sans-serif;
   }
 
@@ -334,15 +381,14 @@
 
   .btn-hover {
     position: absolute;
-    width: 23%;
-    height: 20%;
-    bottom: 0px;
-    right: 0%;
+    width: 115px;
+    height: 31px;
+    bottom: 20px;
+    right: 20px;
     font-size: 16px;
     font-weight: 600;
     color: #fff;
     cursor: pointer;
-    margin: 20px;
     text-align: center;
     border: none;
     background-size: 300% 100%;
@@ -363,6 +409,13 @@
   .btn-hover:active {
     transition-duration: 0s;
     transform: scale(0.95);
+  }
+
+  .btn-hover.color-8.disabled {
+    /* background-image: linear-gradient(to right, #c9dce4, #c0d8cd, #b8dac9, #9dbdad); */
+    background-image: linear-gradient(to right, #1c2529, #1b1a1a);
+    color: #494b4d;
+    pointer-events: none;
   }
 
   .btn-hover.color-1 {
@@ -442,9 +495,11 @@
   .fire_back {
     position: absolute;
     /* margin: -5% -5% -5% -5%; */
-    margin-left: -2%;
-    width: 100vw;
-    height: 100vh;
+    /* margin-left: -2%; */
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    border-width: 0;
   }
 
 
@@ -481,6 +536,11 @@
   animation: neon .08s ease-in-out infinite alternate;
   }
 
+.chooseLang .sign_word{
+  position: relative;
+  margin-left: 0px;
+  font-size: 1.2rem;
+}
 
 #regular{
   top: 43%;
@@ -508,6 +568,14 @@
   box-sizing: border-box;
   width: 50px;
   height: 30px;
+}
+
+.chooseLang td{
+  padding: 3px;
+}
+
+.chooseLang .toggle{
+  position: relative;
 }
 
 .toggle.toggle-on{
@@ -610,4 +678,283 @@
   opacity: 1;
   -webkit-transition: opacity 1s;
   transition: opacity 1s;
+}
+
+table{
+  width:100%;
+  table-layout: fixed;
+}
+.table_tool{
+  border-radius: 15px;
+  margin: 15px;
+  overflow:hidden;
+  backdrop-filter: blur(6px);
+  background-color: rgba(122, 122, 122, 0.144);
+}
+.tbl-content{
+  height:471px;
+  scroll-behavior: smooth;
+  overflow-x:auto;
+}
+.tableOverflow, 
+.tableOverflow tbody, 
+.tableOverflow tr, 
+.tableOverflow td{
+  -webkit-app-region: no-drag;
+  user-select: none;
+}
+tr{
+  /* line-height: 5px; */
+}
+th{
+  padding: 20px 15px;
+  text-align: left;
+  font-weight: 500;
+  font-size: 12px;
+  color: #fff;
+  text-transform: uppercase;
+  user-select: none;
+}
+td{
+  padding: 15px;
+  text-align: left;
+  vertical-align:middle;
+  font-weight: 300;
+  font-size: 12px;
+  color: #fff;
+  border-bottom: solid 1px rgba(255,255,255,0.1);
+  -webkit-app-region: none;
+}
+tr th:nth-child(2),
+tr th:nth-child(3),
+tr td:nth-child(2),
+tr td:nth-child(3) {
+  text-align: center;
+}
+
+.sortStyle { cursor: pointer; }
+
+.ascStyle {
+  color: #7fd4a7;
+}
+
+.descStyle {
+  color: #ca6e6e;
+}
+
+.unsortStyle {
+  background-image: url(img/bg.gif);
+  background-repeat: no-repeat;
+  background-position: center right;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+} 
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgb(0, 0, 0); 
+} 
+::-webkit-scrollbar-thumb {
+  -webkit-box-shadow: inset 0 0 6px rgba(109, 109, 109, 0.788); 
+}
+
+.dragAndDropArea{
+  position: absolute;
+  border-radius: 15px;
+  top: 0px;
+  margin: 15px;
+  height: 525px;
+  width: 970px;
+  background-color: #3030304f;
+  backdrop-filter: blur(6px);
+  pointer-events: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.white_text_center{
+  position: fixed;
+  top: 35%;
+  color:rgb(71, 71, 71);
+  font-family: 'Courier New';
+  pointer-events: none;
+  user-select: none;
+}
+
+.dragIN {
+  background-color: #5e5e5e4f;
+  transition: all .1s ease-in;
+}
+
+.dragIN .white_text_center{
+  color:rgb(104, 103, 103);
+  transition: all .1s ease-in;
+}
+
+.hidden{
+  opacity: 0;
+  /* pointer-events: none */
+}
+.elastic_transition{
+  transition: all .3s ease-in;
+}
+
+/* Style the button that is used to open and close the collapsible content */
+.collapsible {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .collapsible:hover {
+  background-color: #ccc;
+}
+
+/* Style the collapsible content. Note: hidden by default */
+.hiddenContent {
+  display: none;
+}
+
+.taskResult{
+  color: #ff0000;
+  font-weight: 900;
+}
+
+.tablePathElement{
+  cursor: pointer;
+}
+.tablePathElement:hover{
+  color: #00A8C5;
+}
+
+#disable_panel{
+  position: absolute;
+  top: 0px;
+  height: 100%;
+  width: 100%;
+  background-color: #000000;
+  opacity: 0.5;
+  backdrop-filter: blur(10px);
+  display: none;
+}
+
+.active_langs_text{
+  position: absolute;
+  width: 200px;
+  height: 30px;
+  right: 2%;
+  top: 2.2%;
+  font-size: 1.15rem;
+  color: #02d38d;
+  cursor: pointer;
+}
+
+.dragAndDropArea .active_langs_text{
+  color: #373d3b;
+  font-size: 1.5rem;
+  right: 20px;
+  width: 250px;
+}
+
+.loader_container{
+  width: 100%;
+  height: 100%;
+}
+
+.loader_panel{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader_blac_panel{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  background-color: #000000;
+  opacity: 0.5;
+  backdrop-filter: blur(10px);
+}
+
+.loader {
+  margin-top: -120px;
+  width: 20em;
+  height: 20em;
+  font-size: 10px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader .face {
+    position: absolute;
+    border-radius: 50%;
+    border-style: solid;
+    animation: animate 3s linear infinite;
+}
+
+.loader .face:nth-child(1) {
+    width: 100%;
+    height: 100%;
+    color: gold;
+    border-color: currentColor transparent transparent currentColor;
+    border-width: 0.2em 0.2em 0em 0em;
+    --deg: -45deg;
+    animation-direction: normal;
+}
+
+.loader .face:nth-child(2) {
+    width: 70%;
+    height: 70%;
+    color: lime;
+    border-color: currentColor currentColor transparent transparent;
+    border-width: 0.2em 0em 0em 0.2em;
+    --deg: -135deg;
+    animation-direction: reverse;
+}
+
+.loader .face .circle {
+    position: absolute;
+    width: 50%;
+    height: 0.1em;
+    top: 50%;
+    left: 50%;
+    background-color: transparent;
+    transform: rotate(var(--deg));
+    transform-origin: left;
+}
+
+.loader .face .circle::before {
+    position: absolute;
+    top: -0.5em;
+    right: -0.5em;
+    content: '';
+    width: 1em;
+    height: 1em;
+    background-color: currentColor;
+    border-radius: 50%;
+    box-shadow: 0 0 2em,
+                0 0 4em,
+                0 0 6em,
+                0 0 8em,
+                0 0 10em,
+                0 0 0 0.5em rgba(255, 255, 0, 0.1);
+}
+
+@keyframes animate {
+    to {
+        transform: rotate(1turn);
+    }
 }
