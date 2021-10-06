@@ -702,6 +702,7 @@ table{
 .tableOverflow td{
   -webkit-app-region: no-drag;
   user-select: none;
+  word-wrap: break-word;
 }
 tr{
   /* line-height: 5px; */

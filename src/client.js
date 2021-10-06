@@ -218,7 +218,6 @@ function dimensionCheck(groups){
   groups.forEach((files, groupName) => {
     var standardSlice = files.find((file) => file.lang === 'en')
     if(!standardSlice){
-      console.log(files);
       problemFiles.push({
         directoryPath: files[0].folderPath,
         fileName: files[0].groupName + ' -> [en]',
