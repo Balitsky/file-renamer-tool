@@ -2,7 +2,7 @@
   "name": "file-renamer-tool",
   "productName": "file-renamer-tool",
   "repository": "https://github.com/Balitsky/file-renamer-tool",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Helper for file renaming",
   "main": "src/index.js",
   "scripts": {
