@@ -1,8 +1,8 @@
 import os, re, sys, json
 
 regexLang: str = ".+(?=_%s[^a-zA-Z])"
-languages: [] = ["bg", "ch", "cs", "da", "de", "el", "en", "es-mx", "es", "et", "fi", "fr", "hu", "it",
-                 "ja", "ko", "ms", "no", "nl", "pl", "pt", "ro", "ru", "sk", "sv", "th", "zh-cn", "zh-hans", "zh-hant"]
+languages: [] = ["bg", "ch", "cs", "da", "de", "el", "en", "es", "es-mx", "et", "fi", "fr", "fr-ca", "hu", "hr", "it", 
+                 "ja", "ko", "ms", "no", "nl", "pl", "pt", "pt-br", "ro", "ru", "sk", "sv", "th", "tr", "zh-cn"]
 
 def getPath(name): return os.getcwd() + '\\' + name
 

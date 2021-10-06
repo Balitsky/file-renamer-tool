@@ -25,6 +25,26 @@ html, body {
     animation: gradient 15s ease infinite;
   }
 
+  .gr.chooseLang{
+    width: 175px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-app-region: drag;
+  }
+
+  .chooseLang .table_tool{
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 10%;
+    height: 400px;
+  }
+  .chooseLang .tbl-content{
+    height: 355px;
+  }
+
   @keyframes gradient {
     0% {
       background-position: 0% 50%;
@@ -111,7 +131,6 @@ html, body {
     top: 12%;
     justify-content: left;
     align-items: center;
-    z-index: 2;
     -webkit-box-pack: left;
     -webkit-box-align: center;
     -webkit-app-region: none;
@@ -161,6 +180,23 @@ html, body {
     -webkit-animation: gradient 16s linear infinite;
   }
 
+  #disable_button .apply_btn .btn_body,
+  #disable_button .apply_btn .btn_glow{
+    background: linear-gradient(-45deg, #555555, #94ff3d, #3cf09c);
+  }
+  
+  .apply_btn .btn_body,
+  .apply_btn .btn_glow{
+    background: linear-gradient(-45deg, #c5ff3d, #8bff3d, #3aff33, #3cf09c);
+  }
+
+  .button.apply_btn{
+    position: absolute;
+    top: auto;
+    bottom: 5%;
+    width: 140px;
+  }
+
   .button .btn_glow {
     position: absolute;
     margin-top: 0px;
@@ -188,7 +224,6 @@ html, body {
       linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
     background-color: #131313;
     background-size: 20px 20px;
-    z-index: 99;
   }
 
   .popup {
@@ -501,6 +536,11 @@ html, body {
   animation: neon .08s ease-in-out infinite alternate;
   }
 
+.chooseLang .sign_word{
+  position: relative;
+  margin-left: 0px;
+  font-size: 1.2rem;
+}
 
 #regular{
   top: 43%;
@@ -528,6 +568,14 @@ html, body {
   box-sizing: border-box;
   width: 50px;
   height: 30px;
+}
+
+.chooseLang td{
+  padding: 3px;
+}
+
+.chooseLang .toggle{
+  position: relative;
 }
 
 .toggle.toggle-on{
@@ -644,7 +692,7 @@ table{
   background-color: rgba(122, 122, 122, 0.144);
 }
 .tbl-content{
-  height:325px;
+  height:471px;
   scroll-behavior: smooth;
   overflow-x:auto;
 }
@@ -654,10 +702,9 @@ table{
 .tableOverflow td{
   -webkit-app-region: no-drag;
   user-select: none;
-  z-index: 1;
 }
 tr{
-  line-height: 5px;
+  /* line-height: 5px; */
 }
 th{
   padding: 20px 15px;
@@ -714,9 +761,9 @@ tr td:nth-child(3) {
 .dragAndDropArea{
   position: absolute;
   border-radius: 15px;
-  top: 50px;
+  top: 0px;
   margin: 15px;
-  height: 370px;
+  height: 525px;
   width: 970px;
   background-color: #3030304f;
   backdrop-filter: blur(6px);
@@ -747,7 +794,167 @@ tr td:nth-child(3) {
 
 .hidden{
   opacity: 0;
+  /* pointer-events: none */
 }
 .elastic_transition{
   transition: all .3s ease-in;
+}
+
+/* Style the button that is used to open and close the collapsible content */
+.collapsible {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .collapsible:hover {
+  background-color: #ccc;
+}
+
+/* Style the collapsible content. Note: hidden by default */
+.hiddenContent {
+  display: none;
+}
+
+.taskResult{
+  color: #ff0000;
+  font-weight: 900;
+}
+
+.tablePathElement{
+  cursor: pointer;
+}
+.tablePathElement:hover{
+  color: #00A8C5;
+}
+
+#disable_panel{
+  position: absolute;
+  top: 0px;
+  height: 100%;
+  width: 100%;
+  background-color: #000000;
+  opacity: 0.5;
+  backdrop-filter: blur(10px);
+  display: none;
+}
+
+.active_langs_text{
+  position: absolute;
+  width: 200px;
+  height: 30px;
+  right: 2%;
+  top: 2.2%;
+  font-size: 1.15rem;
+  color: #02d38d;
+  cursor: pointer;
+}
+
+.dragAndDropArea .active_langs_text{
+  color: #373d3b;
+  font-size: 1.5rem;
+  right: 20px;
+  width: 250px;
+}
+
+.loader_container{
+  width: 100%;
+  height: 100%;
+}
+
+.loader_panel{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader_blac_panel{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  background-color: #000000;
+  opacity: 0.5;
+  backdrop-filter: blur(10px);
+}
+
+.loader {
+  margin-top: -120px;
+  width: 20em;
+  height: 20em;
+  font-size: 10px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader .face {
+    position: absolute;
+    border-radius: 50%;
+    border-style: solid;
+    animation: animate 3s linear infinite;
+}
+
+.loader .face:nth-child(1) {
+    width: 100%;
+    height: 100%;
+    color: gold;
+    border-color: currentColor transparent transparent currentColor;
+    border-width: 0.2em 0.2em 0em 0em;
+    --deg: -45deg;
+    animation-direction: normal;
+}
+
+.loader .face:nth-child(2) {
+    width: 70%;
+    height: 70%;
+    color: lime;
+    border-color: currentColor currentColor transparent transparent;
+    border-width: 0.2em 0em 0em 0.2em;
+    --deg: -135deg;
+    animation-direction: reverse;
+}
+
+.loader .face .circle {
+    position: absolute;
+    width: 50%;
+    height: 0.1em;
+    top: 50%;
+    left: 50%;
+    background-color: transparent;
+    transform: rotate(var(--deg));
+    transform-origin: left;
+}
+
+.loader .face .circle::before {
+    position: absolute;
+    top: -0.5em;
+    right: -0.5em;
+    content: '';
+    width: 1em;
+    height: 1em;
+    background-color: currentColor;
+    border-radius: 50%;
+    box-shadow: 0 0 2em,
+                0 0 4em,
+                0 0 6em,
+                0 0 8em,
+                0 0 10em,
+                0 0 0 0.5em rgba(255, 255, 0, 0.1);
+}
+
+@keyframes animate {
+    to {
+        transform: rotate(1turn);
+    }
 }

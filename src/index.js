@@ -11,10 +11,47 @@ if (require('electron-squirrel-startup')) { // eslint-disable-line global-requir
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
+let chooseLangWindow;
 
 ipcMain.on('resize-window', (e, params) => {
   mainWindow.setMinimumSize(params.width, params.height)
   mainWindow.setSize(params.width, params.height, false);
+  e.returnValue = true;
+})
+
+ipcMain.on('apply-langs', (e, params) => {
+  mainWindow.webContents.send('apply-langs', params.langs)
+  e.returnValue = true;
+})
+
+
+ipcMain.on('chooseLang-window', (e, params) => {
+  chooseLangWindow = new BrowserWindow({
+    parent: mainWindow,
+    width: params.width,
+    height: params.height,
+    transparent: true,
+    resizable: false,
+    fullscreen: false,
+    fullscreenable: false,
+    maximizable: false,
+    webviewTag: true,
+    frame: false,
+    webPreferences: {
+      nodeIntegration: true
+    }
+  })
+  var localParams = params
+  chooseLangWindow.webContents.once('dom-ready', () => {
+    chooseLangWindow.webContents.send('langs-option', localParams) 
+  })
+  chooseLangWindow.loadFile('src/chooseLangPage.html');
+  // chooseLangWindow.webContents.openDevTools();
+  
+  
+  /* setTimeout(() => {
+    chooseLangWindow.webContents.send('langs-option', langs)  
+  }, 5200) */
   e.returnValue = true;
 })
 
@@ -25,7 +62,7 @@ var windowOptions = {
   resizable: false,
   fullscreen: false,
   fullscreenable: false,
-  maximizable : false,
+  maximizable: false,
   webviewTag: true,
   frame: false,
   webPreferences: {
@@ -42,7 +79,7 @@ var devOptions = {
 
 devOptions = undefined;
 
-if(devOptions){
+if (devOptions) {
   windowOptions = {
     width: 500,
     height: 200,
@@ -66,7 +103,7 @@ const createWindow = () => {
   mainWindow.loadURL(`file://${__dirname}/index.html`);
 
   // Open the DevTools.
-  if(devOptions){
+  if (devOptions) {
     mainWindow.webContents.openDevTools();
   }
 

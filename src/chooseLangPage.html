@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="gr chooseLang">
+        <iframe src="background/firefly.html" class="fire_back" scrolling="no"></iframe>
+
+        <div class="table_tool elastic_transition">
+            <div class="tbl-header">
+                <table cellpadding="0" cellspacing="0" border="0">
+                    <colgroup>
+                        <col style="width:100%">
+                    </colgroup>
+                    <thead class="interactive">
+                        <tr>
+                            <th style="text-align: center;">Select all</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="tbl-content">
+                <table class="tableOverflow" cellpadding="0" cellspacing="0" border="0">
+                    <colgroup>
+                        <col style="width:40%">
+                        <col style="width:60%">
+                    </colgroup>
+                    <tbody id="table_body">
+                        <tr style="display: none;">
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="button apply_btn" onclick="apply()">
+            <div class="btn_glow"></div>
+            <div class="btn_body">
+                <div>Apply</div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="lib/jq.tablesort.js"></script>
+    <script type="text/javascript" src="chooseLang.js"></script>
+</body>
+
+</html>

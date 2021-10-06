@@ -31,7 +31,7 @@
       </div>
       <div class="button" onclick="openTool(this, 'third_tool', {width: 1000, height: 600})">
         <div class="btn_glow"></div>
-        <div class="btn_body">Localization checker</div>
+        <div class="btn_body">L10N check</div>
       </div>
     </div>
     <div class="tool_container first_tool">
@@ -82,23 +82,16 @@
       </div>
     </div>
     <div class="tool_container third_tool">
-      <div class="interactive form__group">
-        <input type="input" class="form__field" placeholder=" " name="path" autocomplete="off" id='path' required />
-        <label for="path" class="form__label">Path</label>
-      </div>
       <div class="table_tool hidden elastic_transition">
+        <div class="active_langs_text" onclick="selectLangs()"></div>
         <div class="tbl-header">
           <table cellpadding="0" cellspacing="0" border="0">
             <colgroup>
-              <col style="width:60%">
-              <col style="width:20%">
-              <col style="width:20%">
+              <col style="width:100%">
             </colgroup>
             <thead class="interactive">
               <tr>
-                <th class="sortStyle">Image path</th>
-                <th class="sortStyle">Dimensions</th>
-                <th class="sortStyle">Patern name</th>
+                <th style="text-align: center;">Localization check tasks</th>
               </tr>
             </thead>
           </table>
@@ -106,44 +99,33 @@
         <div class="tbl-content">
           <table class="tableOverflow" cellpadding="0" cellspacing="0" border="0">
             <colgroup>
-              <col style="width:60%">
-              <col style="width:20%">
-              <col style="width:20%">
+              <col style="width:70%">
+              <col style="width:30%">
             </colgroup> 
-            <tbody id="table_body">
-              <tr>
-                <td>C:\repositories\git.bitbucket\geco-even-the-score\build\glu</td>
-                <td>1024x1024</td>
-                <td>valid</td>
-              </tr>
-              <tr>
-                <td>C:\repositories\git.bitbucket\geco-even-the-score\build\glu</td>
-                <td>1024x1024</td>
-                <td>valid</td>
-              </tr>
-              <tr>
-                <td>C:\repositories\git.bitbucket\geco-even-the-score\build\glu</td>
-                <td>1024x1024</td>
-                <td>valid</td>
-              </tr>
-              <tr>
-                <td>C:\repositories\git.bitbucket\geco-even-the-score\build\glu</td>
-                <td>1024x1024</td>
-                <td>valid</td>
-              </tr>
-            </tbody>
+            <tbody id="table_body"></tbody>
           </table>
         </div>
       </div>
       <div class="dragAndDropArea interactive elastic_transition">
+        <div class="active_langs_text" onclick="selectLangs()"></div>
         <h1 class="base white_text_center">Drag here your packege</h1>
         <h1 class="drag_in white_text_center hidden">Let it go, I'll catch :)</h1>
       </div>
-      <div class="interactive form__group" style="width: 30%;margin-top:10px;">
-        <input type="input" class="form__field" placeholder=" " name="name" autocomplete="off" id='name' required />
-        <label for="name" class="form__label">Kek</label>
+    </div>
+    <div id="disable_panel"></div>
+    <div class="loader_container hiddenContent">
+      <div class="loader_panel">
+        <div class="loader_blac_panel"></div>
+        <div class="loader">
+          <div class="face">
+            <div class="circle"></div>
+          </div>
+          <div class="face">
+            <div class="circle"></div>
+          </div>
+        </div>
       </div>
-      <button id="apply" class="interactive elastic_transition btn-hover color-8 disabled" onclick="test()">Check</button>
+    </div>
     </div>
     <script type="text/javascript" src="lib/jq.tablesort.js"></script>
     <script type="text/javascript" src="client.js"></script>
