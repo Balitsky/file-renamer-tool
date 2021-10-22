@@ -70,7 +70,7 @@ function init() {
     }
 });
 
-var drag = require('electron-drag')
+var drag = require('./windowDrag.js')
  
 // Pass a query selector or a dom element to the function.
 // Dragging the element will drag the whole window.
